@@ -15,4 +15,5 @@ export class TextlistComponent implements OnInit {
         this._DataService.getTexts()
             .subscribe(resTextsData => this.texts = resTextsData);
     }
+//    todo - dodać funkcje do obsługi akcji delete i edit
 }
