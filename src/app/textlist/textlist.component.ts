@@ -12,6 +12,7 @@ export class TextlistComponent implements OnInit {
   ngOnInit() {
        this._DataService.getTexts()
       .subscribe(resTextsData => this.texts = resTextsData);
+       console.log(this.texts);
   }
 
 }
