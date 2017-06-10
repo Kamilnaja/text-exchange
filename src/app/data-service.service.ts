@@ -4,11 +4,11 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class DataServiceService {
-
+  private _url= '/texts';
   constructor( private http: Http ) {}
 
   getTexts () {
-    return this.http.get('http://localhost:8080/texts')
-         .map((response: Response) => response.json());
+    return this.http.get(this._url)
+         .map((response:Response) => response.json());
   }
 }

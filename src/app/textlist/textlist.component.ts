@@ -6,13 +6,15 @@ import { DataServiceService } from "../data-service.service";
   templateUrl: './textlist.component.html',
 })
 export class TextlistComponent implements OnInit {
-  texts: any = [];
+  texts:any = [];
   constructor(private _DataService: DataServiceService) { }
 
   ngOnInit() {
        this._DataService.getTexts()
       .subscribe(resTextsData => this.texts = resTextsData);
-       console.log(this.texts);
+
+
   }
+
 
 }
