@@ -1,4 +1,8 @@
-<li *ngFor="let text of texts">
-  {{text}}
-</li>
-<p>Dupa</p>
+<ul>
+  <li *ngFor="let text of texts.data">
+    <p>{{text.id}}</p>
+    <p>{{text.author}}</p>
+    <p>{{text.title}}</p>
+    <p>{{text.content}}</p>
+  </li>
+</ul>

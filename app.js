@@ -1,17 +1,8 @@
 var express = require('express');
-var mysql = require('mysql');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
-
-var connection = mysql.createConnection ({
-
-    host:'localhost',
-    user:'root',
-    password:'',
-    database:'textbase'
-});
-
+var connection = require('./dbconnection');
 connection.connect();
 
 app.use(bodyParser.json());
