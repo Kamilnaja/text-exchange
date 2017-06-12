@@ -17,7 +17,7 @@ app.get('/', function(req, res) {
 });
 
 //retrieve all texts
-app.get('/texts', function (req, res) {
+app.get('/api/texts', function (req, res) {
    connection.query('SELECT * FROM texts', function (error, results, fields) {
        if (error) throw error;
        return res.send({error: false, data: results, message: 'Texts list'})
@@ -62,7 +62,7 @@ app.post('/texts', function (req, res) {
 
 //delete
 
-app.delete('/texts/:id', function (req, res) {
+app.delete('/api/texts/:id', function (req, res) {
 
     let text_id = req.params.id;
 
