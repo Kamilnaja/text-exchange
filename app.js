@@ -6,9 +6,9 @@ var connection = require('./dbconnection');
 connection.connect();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+// app.use(bodyParser.urlencoded({
+//     extended: true
+// }));
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
@@ -25,8 +25,8 @@ app.get('/api/texts', function (req, res) {
 });
 
 //retrieve single text
-
-app.get('/texts/:id', function (req, res) {
+//api works properly
+app.get('/api/texts/:id', function (req, res) {
     let text_id = req.params.id;
     if (!text_id) {
         return res.status(400)
@@ -34,12 +34,12 @@ app.get('/texts/:id', function (req, res) {
     }
     connection.query('SELECT * FROM texts where id=?', text_id, function (error, results, fields) {
         if (error) throw error;
-        return res.send({error: false, data: results[0], message: 'Texts list'})
+        return res.send({ error: false, data: results[0], message: 'Item is empty' })
     })
 });
 
 //find text by name
-app.get('/texts/search/:keyword', function (req, res) {
+app.get('/api/texts/search/:keyword', function (req, res) {
    var keyword = req.params.keyword;
    connection.query("SELECT * FROM texts WHERE title LIKE ?", ['%' + keyword + '%'], function (error, results, fields) {
        if (error) throw error;
@@ -48,30 +48,28 @@ app.get('/texts/search/:keyword', function (req, res) {
 });
 
 //add new text
-
-app.post('/texts', function (req, res) {
+//todo -  test this api
+app.post('/api/texts', function (req, res) {
     let text = req.body.text;
     if (!text) {
-        return res.status(400).send({error:true, message: 'Please provide text'});
+        return res.status(400)
+            .send({ error:true, message: 'Please provide text' });
     }
     connection.query("INSERT INTO text SET ? ", {text: text}, function (error, results, fields) {
         if (error) throw error;
-        return res.send({error: false, data: results, message: "Added new text !!!"})
+        return res.send({ error: false, data: results, message: "Added new text !!!"})
     })
 });
 
-//delete
-
 app.delete('/api/texts/:id', function (req, res) {
-
     let text_id = req.params.id;
-
     if (!text_id) {
-        return res.status(400).send({ error: true, message: 'Please provide text_id' });
+        return res.status(400)
+            .send({ error: true, message: 'Please provide deleted text_id' });
     }
     connection.query('DELETE FROM texts WHERE id = ?', text_id, function (error, results, fields) {
         if (error) throw error;
-        return res.send({ error: false, data: results, message: 'text has been updated successfully.' });
+        return res.send({ error: false, data: results, message: 'Usunięto tekst o numerze ' + text_id });
     });
 });
 

@@ -1,31 +1,28 @@
-# View
+#Textopedia
+App for selling your own copywrited pieces. Work in progress.
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+Tech stack - Angular2, MySql, Express and Bootstrap 4
+##start project
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+*npm install
 
-## Code scaffolding
+*nodemon app.js (nodemon is required), or just node app.js  you should run this command after all changes.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+*while editing something on angular - ng build --watch
 
-## Build
+##Changelog 15 june 2017
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+User can view his texts
 
-## Running unit tests
+User can delete texts
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+User can display his texts by id
 
-## Running end-to-end tests
+##Todo 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+User can add his texts
 
-## Deploying to GitHub Pages
+User can edit texts 
 
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
+User can create account 
 
-## Further help
-
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

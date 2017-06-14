@@ -1,10 +1,14 @@
-<ul>
-  <li *ngFor="let text of texts.data">
-    <p>{{text.id}}</p>
-    <p>{{text.author}}</p>
-    <p>{{text.title}}</p>
-    <p>{{text.content}}</p>
-    <button (click)="deleteText()">Remove</button>
-    <button>Edit</button>
-  </li>
-</ul>
+<div class="container">
+  <div class="row">
+    <ul style="margin-top: 20px;">
+      <li *ngFor="let text of texts.data">
+        <p>{{text.id}}</p>
+        <p>{{text.author}}</p>
+        <p>{{text.title}}</p>
+        <p>{{text.content}}</p>
+        <button (click)="deleteText(text)">Remove</button>
+        <button>Edit</button>
+      </li>
+    </ul>
+  </div>
+</div>
