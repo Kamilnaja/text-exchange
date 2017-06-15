@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import {Observable} from "rxjs/Rx";
 
 @Injectable()
-export class DataServiceService {
+export class DataService {
   private _url= '/api/texts';
   constructor( private http: Http ) {}
 

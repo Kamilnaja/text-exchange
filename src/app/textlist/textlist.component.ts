@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {DataServiceService} from "../data-service.service";
+import {DataService} from "../data-service.service";
 import {Observable} from "rxjs/Observable";
 
 @Component({
@@ -11,7 +11,7 @@ export class TextlistComponent implements OnInit {
 
     texts: any = [];
 
-    constructor(private _DataService: DataServiceService) {
+    constructor(private _DataService: DataService) {
     }
 
     ngOnInit() {

@@ -5,19 +5,31 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { TextlistComponent } from './textlist/textlist.component';
-import {DataServiceService} from "./data-service.service";
+import {DataService} from "./data-service.service";
+import {Routes, RouterModule } from '@angular/router';
+import { TextSubmitComponent } from './text-submit/text-submit.component';
+
+const appRoutes: Routes = [
+    {
+      path: 'submit-text',
+      component: TextSubmitComponent
+    },
+
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    TextlistComponent
+    TextlistComponent,
+    TextSubmitComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [DataServiceService],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

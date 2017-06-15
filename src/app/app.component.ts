@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataServiceService} from "./data-service.service";
+import { DataService} from "./data-service.service";
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import { DataServiceService} from "./data-service.service";
 
 export class AppComponent implements OnInit {
   texts: any = [];
- constructor(private _textService: DataServiceService){}
+ constructor(private _textService: DataService){}
   ngOnInit() {
     this._textService.getTexts()
       .subscribe(resHerbsData => this.texts = resHerbsData);
