@@ -1,13 +1,18 @@
 <div class="container">
   <div class="row">
-    <ul style="margin-top: 20px;">
+    <ul style="margin-top: 20px;" class="list-unstyled">
+      <p *ngIf="texts.data?.length === 0">
+        Nie ma żadnych tekstów. Dodaj coś!
+      </p>
       <li *ngFor="let text of texts.data">
         <p>{{text.id}}</p>
         <p>{{text.author}}</p>
         <p>{{text.title}}</p>
         <p>{{text.content}}</p>
+        <p>{{text.content.length}}</p>
         <button (click)="deleteText(text)">Remove</button>
         <button>Edit</button>
+        <hr>
       </li>
     </ul>
   </div>

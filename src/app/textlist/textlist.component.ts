@@ -8,6 +8,7 @@ import {Observable} from "rxjs/Observable";
 })
 
 export class TextlistComponent implements OnInit {
+
     texts: any = [];
 
     constructor(private _DataService: DataServiceService) {
@@ -16,6 +17,7 @@ export class TextlistComponent implements OnInit {
     ngOnInit() {
         this._DataService.getTexts()
             .subscribe(resTextsData => this.texts = resTextsData);
+
     }
 //    todo - dodać funkcje do obsługi akcji delete i edit
 //    https://www.metaltoad.com/blog/angular-2-using-http-service-write-data-api
