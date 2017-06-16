@@ -13,10 +13,10 @@ export class DataService {
          .map((response:Response) => response.json());
   }
   //https://www.metaltoad.com/blog/angular-2-using-http-service-write-data-api
-  createText(text) {
+  addText(textToSubmit) {
     let headers = new Headers({ 'Content-Type' : 'application/json'});
-    let options = new RequestOptions({headers: headers});
-    let body = JSON.stringify(text);
+    let options = new RequestOptions({ headers: headers });
+    let body = JSON.stringify(textToSubmit)
     return this.http.post('/api/texts/', body, options ).map((res: Response) => res.json());
   }
 

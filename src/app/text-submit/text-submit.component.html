@@ -1,3 +1,23 @@
-<p>
-  text-submit works!
-</p>
+<form>
+  <div class="form-group">
+    <label for="title">Text title</label>
+    <!--todo - input to title -->
+    <input
+        type="text"
+        id="title"
+        [(ngModel)]="addedTextTitle"
+        [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group">
+    <label for="content" class="">Text content</label>
+    <textarea
+        id="content"
+        content="form-control"
+        [(ngModel)]="addedTextContent"
+        [ngModelOptions]="{standalone: true}"></textarea><br>
+    <button
+        class="btn btn-info"
+        (click)="submitText(text)">Submit
+    </button>
+  </div>
+</form>

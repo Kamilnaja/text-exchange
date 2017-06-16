@@ -12,9 +12,14 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
+// app.get('*', function (req, res) {
+//     res.sendFile(path.join(__dirname, 'dist/index.html'));
+// });
+
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
+
 
 //retrieve all texts
 app.get('/api/texts', function (req, res) {
@@ -50,15 +55,18 @@ app.get('/api/texts/search/:keyword', function (req, res) {
 //add new text
 //todo -  test this api
 app.post('/api/texts', function (req, res) {
-    let text = req.body.text;
-    if (!text) {
-        return res.status(400)
-            .send({ error:true, message: 'Please provide text' });
-    }
-    connection.query("INSERT INTO text SET ? ", {text: text}, function (error, results, fields) {
-        if (error) throw error;
-        return res.send({ error: false, data: results, message: "Added new text !!!"})
-    })
+  var insertSql = "INSERT INTO texts SET ?";
+			var insertValues = {
+			"title" : "name",
+			"content" : "name2"
+			};
+			var query = connection.query(insertSql, insertValues, function (err, result){
+				if(err){
+				console.error('SQL error: ', err);
+				return (err);
+				}
+				console.log(result);
+			});
 });
 
 app.delete('/api/texts/:id', function (req, res) {

@@ -14,7 +14,6 @@ const appRoutes: Routes = [
       path: 'submit-text',
       component: TextSubmitComponent
     },
-
 ];
 
 @NgModule({
