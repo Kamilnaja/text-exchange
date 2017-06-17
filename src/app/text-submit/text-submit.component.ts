@@ -22,8 +22,7 @@ export class TextSubmitComponent {
     }
 //połącz się z api
     submitText(name) {
-        // let textToSubmit = this.addedTextTitle + ',' + this.addedTextContent;
-        let text = {name: name}
+        let text = {title: this.addedTextTitle, content: this.addedTextContent}
         this._DataService.addText(text).subscribe(
             data => {
                 this._DataService.getTexts();

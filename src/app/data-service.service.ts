@@ -16,8 +16,9 @@ export class DataService {
   addText(textToSubmit) {
     let headers = new Headers({ 'Content-Type' : 'application/json'});
     let options = new RequestOptions({ headers: headers });
-    let body = JSON.stringify(textToSubmit)
-    return this.http.post('/api/texts/', body, options ).map((res: Response) => res.json());
+    let body = JSON.stringify(textToSubmit);
+    return this.http.post('/api/texts/', body, options )
+        .map((res: Response) => res.json());
   }
 
   deleteText(id) {
