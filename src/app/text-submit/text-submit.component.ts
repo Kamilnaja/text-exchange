@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {DataService} from "../data-service.service";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/observable/throw';
@@ -8,10 +8,10 @@ import 'rxjs/add/observable/throw';
     templateUrl: './text-submit.component.html'
 })
 
-export class TextSubmitComponent implements OnInit {
+export class TextSubmitComponent {
     addedTextTitle = "";
     addedTextContent = "";
-
+    public new_text;
     constructor(private _DataService: DataService) {
     }
     texts: any = [];
@@ -21,10 +21,10 @@ export class TextSubmitComponent implements OnInit {
             .subscribe(resTextsData => this.texts = resTextsData);
     }
 //połącz się z api
-    submitText(text) {
+    submitText(name) {
         // let textToSubmit = this.addedTextTitle + ',' + this.addedTextContent;
-
-        this._DataService.addText(textToSubmit).subscribe(
+        let text = {name: name}
+        this._DataService.addText(text).subscribe(
             data => {
                 this._DataService.getTexts();
                 //todo -przeładować stronę

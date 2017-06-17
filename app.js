@@ -55,12 +55,10 @@ app.get('/api/texts/search/:keyword', function (req, res) {
 //add new text
 //todo -  test this api
 app.post('/api/texts', function (req, res) {
+  let text = req.body.text;
   var insertSql = "INSERT INTO texts SET ?";
-			var insertValues = {
-			"title" : "name",
-			"content" : "name2"
-			};
-			var query = connection.query(insertSql, insertValues, function (err, result){
+
+			var query = connection.query(insertSql, {title: text}, function (err, result){
 				if(err){
 				console.error('SQL error: ', err);
 				return (err);
