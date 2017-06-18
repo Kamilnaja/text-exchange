@@ -5,14 +5,19 @@
       <p *ngIf="texts.data?.length === 0">
         Nie ma żadnych tekstów. Dodaj coś!
       </p>
-      <li *ngFor="let text of texts.data">
+      <li *ngFor="let text of texts.data" (click)="onSelect(text)">
         <p>{{text.id}}</p>
         <p>{{text.author}}</p>
-        <p>{{text.title}}</p>
-        <p>{{text.content}}</p>
+        <p class="hiddenInput">
+           {{text.title}}
+        </p>
+        <p>{{textTitle}}</p>
+        <textarea
+            class="hiddenInput falseTextarea"
+            value="{{text.content}}"></textarea>
         <p>{{text.content.length}}</p>
         <button (click)="deleteText(text)">Remove</button>
-        <button>Edit</button>
+        <button (click)="saveChanges()">Save</button>
         <hr>
       </li>
     </ul>

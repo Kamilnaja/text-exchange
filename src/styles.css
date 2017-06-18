@@ -1,3 +1,16 @@
 .main {
     margin-top: 90px;
 }
+.hiddenInput {
+    border: none;
+}
+
+/*.hiddenInput:focus {*/
+    /*border: 1px dashed cornflowerblue;*/
+/*}*/
+.falseTextarea {
+    display: block;
+    width: 500px; /* todo change */
+    resize: none;
+    height: 200px;
+}
