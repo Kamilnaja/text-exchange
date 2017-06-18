@@ -11,7 +11,8 @@ app.use(bodyParser.json());
 // }));
 
 app.use(express.static(path.join(__dirname, 'dist')));
-
+//serve the css files
+app.use(express.static('src'));
 // app.get('*', function (req, res) {
 //     res.sendFile(path.join(__dirname, 'dist/index.html'));
 // });
@@ -19,7 +20,6 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
-
 
 //retrieve all texts
 app.get('/api/texts', function (req, res) {

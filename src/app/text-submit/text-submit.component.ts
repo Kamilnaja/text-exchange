@@ -12,6 +12,14 @@ export class TextSubmitComponent {
     addedTextTitle = "";
     addedTextContent = "";
     public new_text;
+    showed = false;
+    toggleForm() {
+        if (this.showed === false) {
+            this.showed = true;
+        } else {
+            this.showed = false;
+        }
+    }
     constructor(private _DataService: DataService) {
     }
     texts: any = [];

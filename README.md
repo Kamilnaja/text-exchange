@@ -10,7 +10,11 @@ Tech stack - Angular2, MySql, Express and Bootstrap 4
 
 *while editing something on angular - ng build --watch
 
-##Changelog 15 june 2017
+# Changelog 18 june 2017
+ 
+User can add his texts 
+
+## Changelog 15 june 2017
 
 User can view his texts
 
@@ -18,9 +22,11 @@ User can delete texts
 
 User can display his texts by id
 
+
+
 ##Todo 
 
-User can add his texts
+
 
 User can edit texts 
 
