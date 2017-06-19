@@ -40,7 +40,6 @@ export class TextSubmitComponent {
             data => {
                 this._DataService.getTexts()
                     .subscribe(resTextsData => this.texts = resTextsData);
-                //todo -przeładować stronę
                 return true;
             },
             error => {

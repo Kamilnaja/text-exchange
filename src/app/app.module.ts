@@ -8,6 +8,7 @@ import { TextlistComponent } from './textlist/textlist.component';
 import {DataService} from "./data-service.service";
 import {Routes, RouterModule } from '@angular/router';
 import { TextSubmitComponent } from './text-submit/text-submit.component';
+import { TextEditComponent } from './text-edit/text-edit.component';
 
 const appRoutes: Routes = [
     {
@@ -20,7 +21,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     TextlistComponent,
-    TextSubmitComponent
+    TextSubmitComponent,
+    TextEditComponent
   ],
   imports: [
     BrowserModule,

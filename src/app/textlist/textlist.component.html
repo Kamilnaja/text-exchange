@@ -1,23 +1,22 @@
 <div class="container" style="margin-top: 50px;">
   <app-text-submit></app-text-submit>
+  <app-text-edit></app-text-edit>
   <div class="row">
     <ul style="margin-top: 20px;" class="list-unstyled">
       <p *ngIf="texts.data?.length === 0">
         Nie ma żadnych tekstów. Dodaj coś!
       </p>
-      <li *ngFor="let text of texts.data" (click)="onSelect(text)">
+      <li *ngFor="let text of texts.data">
         <p>{{text.id}}</p>
         <p>{{text.author}}</p>
-        <p class="hiddenInput">
+        <div>
            {{text.title}}
-        </p>
+        </div>
         <p>{{textTitle}}</p>
-        <textarea
-            class="hiddenInput falseTextarea"
-            value="{{text.content}}"></textarea>
+        <div>{{text.content}}</div>
         <p>{{text.content.length}}</p>
         <button (click)="deleteText(text)">Remove</button>
-        <button (click)="saveChanges()">Save</button>
+
         <hr>
       </li>
     </ul>

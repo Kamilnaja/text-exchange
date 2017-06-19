@@ -10,7 +10,6 @@ import {Observable} from "rxjs/Observable";
 export class TextlistComponent implements OnInit {
 
     texts: any = [];
-
     constructor(private _DataService: DataService) {
     }
 
@@ -21,28 +20,6 @@ export class TextlistComponent implements OnInit {
 
 //    todo - dodać funkcje do obsługi akcji delete i edit
 //    https://www.metaltoad.com/blog/angular-2-using-http-service-write-data-api
-
-    selectedText;
-    onSelect(text) {
-        this.selectedText = text;
-        var changedTitle = prompt('wpisz prawidłowy tytuł');
-        //dane zatwierdzone
-        console.log(changedTitle);
-        //zamień tytuł tekstu w bazie na changed
-        //todo - naprawić
-            this._DataService.updateText(text.id).subscribe(
-                data => {
-                    this._DataService.getTexts();
-                    //todo -przeładować stronę
-                    return true;
-                },
-                error => {
-                    console.error("error while updating");
-                    return Observable.throw(error);
-                }
-            )
-
-    }
 
     deleteText(text) {
         if (confirm("are your sure you wanna delete " + text.id)) {

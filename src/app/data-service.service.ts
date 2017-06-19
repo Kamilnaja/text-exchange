@@ -25,10 +25,10 @@ export class DataService {
       return this.http.delete('/api/texts/' + id);
   }
 
-  updateText(text_id) {
-    let headers = new Headers ({ 'Content-TYpe' : 'application/json'});
+  updateText(textToChange, idToChange) {
+    let headers = new Headers ({ 'Content-Type' : 'application/json'});
     let options = new RequestOptions({headers: headers });
-    let body = JSON.stringify(text_id);
-      return this.http.put('/api/text/' + text_id, body, options).map((res: Response) => res.json());
+    let body = JSON.stringify(textToChange);
+    return this.http.put('/api/text/' + idToChange, body, options).map((res: Response) => res.json());
   }
 }
