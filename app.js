@@ -57,7 +57,6 @@ app.get('/api/texts/search/:keyword', function (req, res) {
 app.post('/api/texts', function (req, res) {
   let text = req.body
   var insertSql = "INSERT INTO texts SET ?";
-
 			var query = connection.query(insertSql, text, function (err, result){
 				if(err){
 				console.error('SQL error: ', err);

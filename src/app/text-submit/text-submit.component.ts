@@ -13,6 +13,7 @@ export class TextSubmitComponent {
     addedTextContent = "";
     public new_text;
     showed = false;
+
     toggleForm() {
         if (this.showed === false) {
             this.showed = true;
@@ -20,25 +21,29 @@ export class TextSubmitComponent {
             this.showed = false;
         }
     }
+
     constructor(private _DataService: DataService) {
     }
+
     texts: any = [];
+
     //todo - posible redundancy of code with textlist-component
     ngOnInit() {
         this._DataService.getTexts()
             .subscribe(resTextsData => this.texts = resTextsData);
     }
+
 //połącz się z api
     submitText(name) {
         let text = {title: this.addedTextTitle, content: this.addedTextContent}
         this._DataService.addText(text).subscribe(
             data => {
-                this._DataService.getTexts();
+                this._DataService.getTexts()
+                    .subscribe(resTextsData => this.texts = resTextsData);
                 //todo -przeładować stronę
                 return true;
             },
             error => {
-                console.error("error while submitting");
                 return Observable.throw(error);
             }
         )
