@@ -1,9 +1,21 @@
 <form action="">
   <label for="id">id</label>
-  <input type="text" id="id">
-  <label for="title">title</label>
-  <input type="text" id="title">
+  <input
+      type="text"
+      id="id"
+      placeholder=""
+      [(ngModel)]="updatedTextId"
+      [ngModelOptions]="{standalone: true}">
+  <label for="title">{{selectedTextId}}</label>
+  <input
+      type="text"
+      id="title"
+      [(ngModel)]="updatedTextTitle"
+      [ngModelOptions]="{standalone: true}">
   <label for="content">Content</label>
-  <input id="content">
-  <button>Save</button>
+  <input
+      id="content"
+      [(ngModel)]="updatedTextContent"
+      [ngModelOptions]="{standalone: true}">
+  <button (click)="updateText(text)">Save</button>
 </form>

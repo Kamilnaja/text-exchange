@@ -6,7 +6,7 @@
       <p *ngIf="texts.data?.length === 0">
         Nie ma żadnych tekstów. Dodaj coś!
       </p>
-      <li *ngFor="let text of texts.data">
+      <li *ngFor="let text of texts.data" (click)="onSelect(text)">
         <p>{{text.id}}</p>
         <p>{{text.author}}</p>
         <div>
