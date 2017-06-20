@@ -23,7 +23,7 @@ export class TextEditComponent implements OnInit {
     }
 
     updateText(name) {
-        let text = {title: this.updatedTextTitle, content: this.updatedTextContent};
+        let text = {title: this.updatedTextTitle, content: this.updatedTextContent , id: this.updatedTextId};
         let id = this.updatedTextId;
         this._DataService.updateText(text, id).subscribe(
             data => {

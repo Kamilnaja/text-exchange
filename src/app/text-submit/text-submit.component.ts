@@ -11,6 +11,7 @@ import 'rxjs/add/observable/throw';
 export class TextSubmitComponent {
     addedTextTitle = "";
     addedTextContent = "";
+    addedTextId = "";
     public new_text;
     showed = false;
 
