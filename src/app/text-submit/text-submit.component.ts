@@ -5,7 +5,8 @@ import 'rxjs/add/observable/throw';
 
 @Component({
     selector: 'app-text-submit',
-    templateUrl: './text-submit.component.html'
+    templateUrl: './text-submit.component.html',
+
 })
 
 export class TextSubmitComponent {

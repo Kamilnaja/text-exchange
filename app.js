@@ -6,15 +6,8 @@ var connection = require('./dbconnection');
 connection.connect();
 
 app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({
-//     extended: true
-// }));
 
 app.use(express.static(path.join(__dirname, 'dist')));
-
-// app.get('*', function (req, res) {
-//     res.sendFile(path.join(__dirname, 'dist/index.html'));
-// });
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
@@ -23,7 +16,7 @@ app.get('/', function (req, res) {
 
 //retrieve all texts
 app.get('/api/texts', function (req, res) {
-  connection.query('SELECT * FROM texts', function (error, results, fields) {
+  connection.query('SELECT title, content, id FROM texts ', function (error, results, fields) {
     if (error) throw error;
     return res.send({error: false, data: results, message: 'Texts list'})
   })

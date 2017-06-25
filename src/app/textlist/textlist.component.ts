@@ -8,23 +8,30 @@ import {Observable} from "rxjs/Observable";
 })
 
 export class TextlistComponent implements OnInit {
-
+    selectedTextId = "";
+    selectedTextTitle = "";
     texts: any = [];
-
-    constructor(private _DataService: DataService) {
-    }
-
+    selectedText = "";
+    showWholeText = false;
     ngOnInit() {
         this._DataService.getTexts()
             .subscribe(resTextsData => this.texts = resTextsData);
-    }
 
-//    todo - dodać funkcje do obsługi akcji delete i edit
+    }
+    constructor(private _DataService: DataService) {
+        console.log(this.texts);
+    }
 //    https://www.metaltoad.com/blog/angular-2-using-http-service-write-data-api
-    selectedTextId = "";
-    onSelect(text) {
-        this.selectedTextId = text.id;
-        console.log(this.selectedTextId);
+
+    setTitle(text) {
+        this.selectedText = text
+        console.log(this.selectedText);        // przekaż zmienną jako globalną
+    }
+    showMore(){
+        this.showWholeText = true;
+    }
+    showLess(){
+        this.showWholeText = false;
     }
     deleteText(text) {
         if (confirm("are your sure you wanna delete " + text.id)) {
@@ -42,4 +49,6 @@ export class TextlistComponent implements OnInit {
             )
         }
     }
+
+
 }

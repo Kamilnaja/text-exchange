@@ -6,6 +6,7 @@ import 'rxjs/add/observable/throw';
 @Component({
     selector: 'app-text-edit',
     templateUrl: './text-edit.component.html',
+    inputs: ['selectedText']
 })
 export class TextEditComponent implements OnInit {
 
@@ -17,13 +18,14 @@ export class TextEditComponent implements OnInit {
     updatedTextContent;
     updatedTextId;
 
+
     ngOnInit() {
         this._DataService.getTexts()
             .subscribe(resTextsData => this.texts = resTextsData);
     }
 
     updateText(name) {
-        let text = {title: this.updatedTextTitle, content: this.updatedTextContent , id: this.updatedTextId};
+        let text = {title: this.updatedTextTitle, content: this.updatedTextContent, id: this.updatedTextId};
         let id = this.updatedTextId;
         this._DataService.updateText(text, id).subscribe(
             data => {

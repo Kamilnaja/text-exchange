@@ -3,8 +3,9 @@ var connection = mysql.createConnection ({
 
     host:'localhost',
     user:'root',
-    password:'',
-    database:'textbase'
+    password:'1',
+    database:'textbase',
+    charset: 'utf8'
 });
 
 module.exports = connection;

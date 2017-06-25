@@ -1,75 +1,39 @@
-<div class="navbar navbar-toggleable-md fixed-top navbar-inverse bg-primary">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="container">
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <a href="../" class="navbar-brand">Bootswatch</a>
-      <ul class="navbar-nav">
-
-        <li class="nav-item">
-          <a class="nav-link" href="http://news.bootswatch.com">Blog</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download">United <span
-              class="caret"></span></a>
-          <div class="dropdown-menu" aria-labelledby="download">
-            <a class="dropdown-item" href="http://jsfiddle.net/bootswatch/cvLkpsx0/">Open in JSFiddle</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="./bootstrap.min.css">bootstrap.min.css</a>
-            <a class="dropdown-item" href="./bootstrap.css">bootstrap.css</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="./_variables.scss">_variables.scss</a>
-            <a class="dropdown-item" href="./_bootswatch.scss">_bootswatch.scss</a>
-          </div>
-        </li>
-      </ul>
-
-      <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="http://builtwithbootstrap.com/" target="_blank">Built With Bootstrap</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://wrapbootstrap.com/?ref=bsw" target="_blank">WrapBootstrap</a>
-        </li>
-      </ul>
-
+<div class="container">
+  <div class="row main">
+    <div class="col-md-12">
+      <p></p>
+      <button class="btn btn-default" (click)="toggleForm()">Dodaj tekst</button>
     </div>
   </div>
-</div>
-
-<div class="row main">
-  <div class="col-md-12">
-    <button class="btn btn-default" (click)="toggleForm()">Dodaj tekst</button>
-  </div>
-</div>
-<hr>
-<!--todo - po kliknięciu pokaż form-->
-<form *ngIf="showed">
-  <div class="form-group">
-    <label for="title">Text title</label>
-    <!--todo - input to title -->
-    <input
-        type="text"
-        id="title"
-        [(ngModel)]="addedTextTitle"
-        [ngModelOptions]="{standalone: true}"
-        required>
-  </div>
-  <div class="form-group">
-    <label for="content" class="">Text content</label>
-    <textarea
-        id="content"
-        content="form-control"
-        [(ngModel)]="addedTextContent"
-        [ngModelOptions]="{standalone: true}"
-        required>
+  <hr>
+  <!--todo - po kliknięciu pokaż form-->
+  <form *ngIf="showed">
+    <div class="form-group row">
+      <label for="title" class="col-2 col-form-label">Text title</label>
+      <!--todo - input to title -->
+      <input
+          type="text"
+          id="title"
+          [(ngModel)]="addedTextTitle"
+          [ngModelOptions]="{standalone: true}"
+          required>
+    </div>
+    <div class="form-group row">
+      <label for="content" class="col-2 col-form-label">Text content</label>
+      <textarea
+          id="content"
+          content="form-control"
+          [(ngModel)]="addedTextContent"
+          [ngModelOptions]="{standalone: true}"
+          required>
 
     </textarea><br>
+
+    </div>
     <button
         class="btn btn-info"
         (click)="submitText(new_text)">Submit
     </button>
-  </div>
-</form>
+    <hr>
+  </form>
+</div>
