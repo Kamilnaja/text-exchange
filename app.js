@@ -13,13 +13,18 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
-
 //retrieve all texts
 app.get('/api/texts', function (req, res) {
-  connection.query('SELECT title, content, id FROM texts ', function (error, results, fields) {
-    if (error) throw error;
-    return res.send({error: false, data: results, message: 'Texts list'})
+  connection.query('ALTER TABLE texts MODIFY COLUMN * TEXT CHARACTER SET utf8', function (error, results, fields) {
+    connection.query('SELECT * FROM texts', function (error, results, fields) {
+
+
+      if (error) throw error;
+      return res.send({error: false, data: results, message: 'Texts list'})
+    })
+
   })
+
 });
 
 //retrieve single text
@@ -93,3 +98,4 @@ app.delete('/api/texts/:id', function (req, res) {
 app.listen(8080, function () {
   console.log("run at 8080");
 });
+
